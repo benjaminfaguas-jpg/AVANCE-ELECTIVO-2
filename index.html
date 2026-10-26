@@ -1106,6 +1106,11 @@
         <span id="yoloText">YOLO11 ASYNC</span>
       </div>
 
+      <div class="pill status-online" id="learnPill">
+        <span class="pulse-dot"></span>
+        <span id="learnText">⚡ IA ACTIVA: 99.4% (#0)</span>
+      </div>
+
       <div class="pill status-online" id="wsPill">
         <span class="pulse-dot"></span>
         <span id="wsText">60.0 FPS · &lt;2ms</span>
@@ -2036,6 +2041,22 @@
           yoloText.textContent = `YOLO11 [${data.yolo.confidence}%]`;
         } else {
           yoloText.textContent = 'YOLO11 OFF';
+        }
+      }
+
+      // 2b. Auto-Aprendizaje Continuo (Learner)
+      if (data.learner) {
+        const l = data.learner;
+        const learnPill = document.getElementById('learnPill');
+        const learnText = document.getElementById('learnText');
+        if (learnPill && learnText) {
+          if (l.arm_locked) {
+            learnPill.className = 'pill status-online';
+            learnText.textContent = `⚡ IA ACTIVA: ${l.quality_percent}% (#${l.iterations})`;
+          } else {
+            learnPill.className = 'pill status-offline';
+            learnText.textContent = `🔍 BUSCANDO BRAZO (#${l.iterations})`;
+          }
         }
       }
 

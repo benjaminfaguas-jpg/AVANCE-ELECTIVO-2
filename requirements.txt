@@ -1,0 +1,9 @@
+# Requerimientos UCEN · Hubot 150-2 AI MoCap & Computer Vision Studio
+# ultralytics provee soporte nativo para YOLOv11-Pose (yolo11n-pose.pt) mientras opencv-contrib-python ejecuta LK y ArUco en <2ms
+opencv-contrib-python>=4.9.0.80
+numpy>=1.26.0
+websockets>=12.0
+ultralytics>=8.3.0
+pyserial>=3.5
+torch>=2.0.0
+
